@@ -1359,7 +1359,9 @@ export function createView(canvas, world) {
 
   function worldToMap(x, z) {
     const b = world.bounds;
-    const u = (x - b.minX) / (b.maxX - b.minX);
+    // Camera sits south of the player and looks +Z, so screen-right is world −X
+    // and screen-up is world +Z. The map uses that same orientation.
+    const u = (b.maxX - x) / (b.maxX - b.minX);
     const v = (b.maxZ - z) / (b.maxZ - b.minZ);
     return { x: 2 + u * (MAP_SIZE - 4), y: 2 + v * (MAP_SIZE - 4) };
   }
@@ -1369,7 +1371,7 @@ export function createView(canvas, world) {
     const u = (px - 2) / (MAP_SIZE - 4);
     const v = (py - 2) / (MAP_SIZE - 4);
     return {
-      x: b.minX + u * (b.maxX - b.minX),
+      x: b.maxX - u * (b.maxX - b.minX),
       z: b.maxZ - v * (b.maxZ - b.minZ),
     };
   }
