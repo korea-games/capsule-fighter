@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Capsule Fighter</title>
+  <link rel="icon" href="data:," />
+  <link rel="stylesheet" href="css/style.css" />
+  <script type="importmap">
+  {
+    "imports": {
+      "three": "./vendor/three/build/three.module.js"
+    }
+  }
+  </script>
+</head>
+<body>
+  <canvas id="view"></canvas>
+  <div id="vignette"></div>
+  <div id="hud">
+    <div id="brand">Capsule Fighter</div>
+    <div id="top">
+      <div id="timer">00:00</div>
+      <div id="best" hidden></div>
+      <div id="hp"><div id="hp-fill"></div></div>
+      <div id="dash"><div id="dash-fill"></div></div>
+      <div id="xp"><div id="xp-fill"></div><span id="lv">LV 0</span></div>
+    </div>
+    <div id="combo" hidden>0</div>
+    <div id="sound-hint">Click for sound</div>
+    <div id="hint">WASD move · hold the mouse and sweep the sword · space dash</div>
+    <div id="mit">MIT</div>
+    <canvas id="minimap" width="312" height="312" aria-label="Map"></canvas>
+  </div>
+  <div id="floats"></div>
+  <div id="cards" hidden>
+    <div class="card-kicker">LEVEL UP</div>
+    <button type="button" class="card" data-i="0"></button>
+    <button type="button" class="card" data-i="1"></button>
+    <button type="button" class="card" data-i="2"></button>
+  </div>
+  <div id="overlay" hidden>
+    <div class="kicker">OVERRUN</div>
+    <div id="final-time">00:00</div>
+    <div id="final-best"></div>
+    <div class="restart">R OR CLICK TO RESTART</div>
+  </div>
+  <div id="fail"></div>
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>
